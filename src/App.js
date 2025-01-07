@@ -2,6 +2,7 @@
 // For this project to work on CodeSandbox, image assets ("assets") folder
 // must be stored in the public folder (as it's the case by default in this project)
 import { App1 } from "./App1";
+import { App2 } from "./App2";
 import reactImage from "./assets/react-core-concepts.png";
 export function Header() {
   const reactDescriptions = ["Fundamental", "Cruicial", "Core"];
@@ -27,6 +28,8 @@ function App() {
         <h2>Time to get started! Gaurav</h2>
       </main>
       <App1 />
+      <br />
+      <App2 />
     </div>
   );
 }
