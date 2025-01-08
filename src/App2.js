@@ -3,7 +3,7 @@ import { CoreConcepts } from "./CoreConcepts.js";
 import TabButton from "./TabButton.js";
 import { useState } from "react";
 export function App2() {
-  const [tabContent, setTabContent] = useState(EXAMPLES.components);
+  const [tabContent, setTabContent] = useState(null);
 
   function handleSelect(contentType) {
     setTabContent(EXAMPLES[contentType]);
@@ -34,13 +34,17 @@ export function App2() {
             <TabButton onSelect={() => handleSelect("props")}>Props</TabButton>
             <TabButton onSelect={() => handleSelect("state")}>State</TabButton>
           </menu>
-          <div id="tab-content">
-            <h3>{tabContent.title}</h3>
-            <p>{tabContent.description}</p>
-            <pre>
-              <code>{tabContent.code}</code>
-            </pre>
-          </div>
+          {tabContent == null ? (
+            <div id="tab-content">Please select any tab to show</div>
+          ) : (
+            <div id="tab-content">
+              <h3>{tabContent.title}</h3>
+              <p>{tabContent.description}</p>
+              <pre>
+                <code>{tabContent.code}</code>
+              </pre>
+            </div>
+          )}
         </section>
       </main>
     </div>
