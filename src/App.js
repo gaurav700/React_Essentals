@@ -27,7 +27,7 @@ function App() {
       <main>
         <h2>Time to get started! Gaurav</h2>
       </main>
-      <App1 />
+      {/* <App1 /> */}
       <br />
       <App2 />
     </div>

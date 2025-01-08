@@ -1,6 +1,13 @@
-import { CORE_CONCEPTS } from "./data.js";
+import { CORE_CONCEPTS, EXAMPLES } from "./data.js";
 import { CoreConcepts } from "./CoreConcepts.js";
+import TabButton from "./TabButton.js";
+import { useState } from "react";
 export function App2() {
+  const [tabContent, setTabContent] = useState(null);
+
+  function handleSelect(contentType) {
+    setTabContent(EXAMPLES[contentType]);
+  }
   return (
     <div>
       <main>
@@ -16,6 +23,28 @@ export function App2() {
               />
             ))}
           </ul>
+        </section>
+        <section id="examples">
+          <h2>Examples</h2>
+          <menu>
+            <TabButton onSelect={() => handleSelect("components")}>
+              Components
+            </TabButton>
+            <TabButton onSelect={() => handleSelect("jsx")}>JSX</TabButton>
+            <TabButton onSelect={() => handleSelect("props")}>Props</TabButton>
+            <TabButton onSelect={() => handleSelect("state")}>State</TabButton>
+          </menu>
+          {tabContent == null ? (
+            <div id="tab-content">Please select any tab to show</div>
+          ) : (
+            <div id="tab-content">
+              <h3>{tabContent.title}</h3>
+              <p>{tabContent.description}</p>
+              <pre>
+                <code>{tabContent.code}</code>
+              </pre>
+            </div>
+          )}
         </section>
       </main>
     </div>
