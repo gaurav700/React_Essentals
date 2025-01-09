@@ -1,8 +1,10 @@
-import { CORE_CONCEPTS, EXAMPLES } from "./data.js";
-import { CoreConcepts } from "./CoreConcepts.js";
-import TabButton from "./TabButton.js";
+import React from "react";
+import { CORE_CONCEPTS, EXAMPLES } from "../data.js";
+import CoreConcepts from "./CoreConcepts.jsx";
+import TabButton from "./TabButton.jsx";
 import { useState } from "react";
-export function App2() {
+import TabContent from "./TabContent.jsx";
+export default function CoreContents2() {
   const [tabContent, setTabContent] = useState(null);
 
   function handleSelect(contentType) {
@@ -37,13 +39,7 @@ export function App2() {
           {tabContent == null ? (
             <div id="tab-content">Please select any tab to show</div>
           ) : (
-            <div id="tab-content">
-              <h3>{tabContent.title}</h3>
-              <p>{tabContent.description}</p>
-              <pre>
-                <code>{tabContent.code}</code>
-              </pre>
-            </div>
+            <TabContent tabContent={tabContent} />
           )}
         </section>
       </main>

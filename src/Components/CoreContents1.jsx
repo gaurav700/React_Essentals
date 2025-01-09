@@ -1,6 +1,7 @@
-import componentImage from "./assets/components.png";
-import { CoreConcepts } from "./CoreConcepts";
-export function App1() {
+import componentImage from "../assets/components.png";
+import CoreConcepts from "./CoreConcepts";
+import React from "react";
+export default function CoreContents1() {
   return (
     <div>
       <main>
